@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title></title>
+ <link rel="stylesheet" href="style1.css">
+
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="header">
+        <a href="photo.jpg" class="logo">Xworkz</a>
+        <div class="header-right">
+          <a class="active" href="index.html">Home</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
+<br>
+<h1 class="text-center text-success"> Registeration Form  </h1>
+
+ <div class="container">
+ 
+
+ <div class="col-lg-8 m-auto d-block">
+ <form>
+ 
+ <div class="form-group">
+ <label for="user"> Name: </label>
+ <input type="text" name="username" id="usernames" class="form-control" autocomplete="off">
+ <h5 id="usercheck">  </h5> 
+ </div>
+
+ <div class="form-group">
+ <label for="email"> Email: </label>
+ <input type="email" name="email" id="emails" class="form-control" autocomplete="off">
+ <h5 id="emailcheck">  </h5> 
+ </div>
+
+ <div class="form-group">
+  <label for="mobile"> Mobile: </label>
+  <input type="number" name="mobile" id="mobiles" class="form-control" autocomplete="off">
+  <h5 id="mobilecheck">  </h5> 
+  </div>
+
+ <div class="form-group">
+ <label for="password"> Password: </label>
+ <input type="text" name="pass" id="password" class="form-control" autocomplete="off">
+ <h5 id="passcheck">  </h5> 
+ </div>
+
+ <div class="form-group">
+ <label for="conpassword"> Con. Password: </label>
+ <input type="text" name="username" id="conpassword" class="form-control" autocomplete="off">
+ <h5 id="conpasscheck">  </h5> 
+ </div>
+
+ <input type="submit" name="" id="submitbtn" value="Submit" class="btn btn-primary">
+
+ </form><br>
+ </div>
+
+ </div>
+
+ <script type="text/javascript">
+ 
+
+ $(document).ready(function(){
+
+ $('#usercheck').hide();
+ $('#passcheck').hide();
+ $('#conpasscheck').hide();
+ $('#emailcheck').hide();
+ $('#mobilecheck').hide();
+ var user_err = true;
+ var pass_err = true;
+ var conpass_err = true;
+var email_err=true;
+var mob_err=true;
+ $('#usernames').keyup(function(){
+ username_check();
+ });
+
+
+ function username_check(){
+
+ var user_val = $('#usernames').val();
+
+ if(user_val.length == ''){
+ $('#usercheck').show();
+ $('#usercheck').html("**Please Fill the username");
+ $('#usercheck').focus();
+ $('#usercheck').css("color","red");
+ user_err = false;
+ return false;
+
+ }else{
+ $('#usercheck').hide();
+ }
+
+ if((user_val.length < 3 ) || (user_val.length > 10 ) ){
+ $('#usercheck').show();
+ $('#usercheck').html("**Username length must be between 3 and 10");
+ $('#usercheck').focus();
+ $('#usercheck').css("color","red");
+ user_err = false;
+ return false;
+
+ }else{
+ $('#usercheck').hide();
+ }
+
+ }
+
+
+//=========
+$('#emails').keyup(function(){
+ email_check();
+ });
+
+
+ function email_check(){
+
+ var email_val = $('#emails').val();
+
+ if(email_val.length == ''){
+ $('#emailcheck').show();
+ $('#emailcheck').html("**Please Fill the email");
+ $('#emailcheck').focus();
+ $('#emailcheck').css("color","red");
+ email_err = false;
+ return false;
+
+ }else{
+ $('#emailcheck').hide();
+ }
+
+ if((email_val.length < 3 ) || (email_val.length > 10 ) ){
+ $('#emailcheck').show();
+ $('#emailcheck').html("**Email must be  @");
+ $('#emailcheck').focus();
+ $('#emailcheck').css("color","red");
+ email_err = false;
+ return false;
+
+ }else{
+ $('#emailcheck').hide();
+ }
+
+ }
+
+
+
+ /////===========
+
+
+ //======
+$('#mobiles').keyup(function(){
+ mobile_check();
+ });
+
+
+ function mobile_check(){
+
+ var mob_val = $('#mobiles').val();
+
+ if(mob_val.length == ''){
+ $('#mobilecheck').show();
+ $('#mobilecheck').html("**Please Fill the mob number");
+ $('#mobilecheck').focus();
+ $('#mobilecheck').css("color","red");
+ mob_err = false;
+ return false;
+
+ }else{
+ $('#mobilecheck').hide();
+ }
+
+ if((mob_val.length < 3 ) || (mob_val.length > 10 ) ){
+ $('#mobilecheck').show();
+ $('#mobilecheck').html("**please enter 10 values");
+ $('#mobilecheck').focus();
+ $('#mobilecheck').css("color","red");
+ mob_err = false;
+ return false;
+
+ }else{
+ $('#mobilecheck').hide();
+ }
+
+ }
+
+
+
+ /////===========
+
+ $('#password').keyup(function(){
+ password_check();
+ });
+
+ function password_check(){
+ 
+ var passwrdstr = $('#password').val();
+
+ if(passwrdstr.length == ''){
+ $('#passcheck').show();
+ $('#passcheck').html("**Please Fill the password");
+ $('#passcheck').focus();
+ $('#passcheck').css("color","red");
+ pass_err = false;
+ return false;
+
+ }else{
+ $('#passcheck').hide();
+  } 
+
+ if((passwrdstr.length < 3 ) || (passwrdstr.length > 10 ) ){
+ $('#passcheck').show();
+ $('#passcheck').html("**password length must be between 3 and 10");
+ $('#passcheck').focus();
+ $('#passcheck').css("color","red");
+ pass_err = false;
+ return false;
+
+ }else{
+ $('#passcheck').hide();
+ }
+ }
+
+ $('#conpassword').keyup(function(){
+ con_passwrd();
+ });
+
+ function con_passwrd(){
+
+ var conpass = $('#conpassword').val();
+ var passwrdstr = $('#password').val();
+
+ if(passwrdstr != conpass){
+ $('#conpasscheck').show();
+ $('#conpasscheck').html("** Password are not Matching");
+ $('#conpasscheck').focus();
+ $('#conpasscheck').css("color","red");
+ conpass_err = false;
+ return false;
+
+ }else{
+ $('#conpasscheck').hide();
+ } 
+ 
+ }
+
+ $('#submitbtn').click(function(){
+
+  user_err = true;
+  pass_err = true;
+  conpass_err = true;
+
+  username_check();
+  password_check();
+  con_passwrd();
+  email_check();
+  mobile_check();
+
+  if((user_err == true ) && (pass_err == true) && (conpass_err == true)&&(email_err==true) &&(mob_err==true) ){
+   return true;
+  }else{
+   return false;
+  }
+
+ });
+
+ });
+
+ </script>
+   </div>
+   <div class="footer">
+     <p>copyright @ 2021 -All right reserved</p>
+   </div>
+
+</body>
+</html>
